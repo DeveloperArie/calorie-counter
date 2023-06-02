@@ -1,15 +1,14 @@
 html, body {
+  position: relative;
   height: 100%;
+  width: 100%;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightskyblue;
+  background-color: white;
 }
 
 code {
@@ -39,9 +38,9 @@ code {
   padding: 0.5rem 1.5rem;
 }
 .calandar {
-  position: absolute;
-  top: 2%;
-  left: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .canvasChart{
   background-color: white;
@@ -49,24 +48,21 @@ code {
 
 }
 .calorieChart{
-  width: 36rem;
-  height: 20rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 2%;
+  
 }
-.chartNcal{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-weight: bold;
   font-size: 1.5rem;
+  color: white;
+  padding-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  background-color: darkgray;
   
 }
 .cLimit{
@@ -78,25 +74,28 @@ code {
 .cDetails{
   display: flex;
   justify-content: space-around;
-  position: absolute;
-  bottom: 5%;
+  position: fixed;
+  bottom: 2%;
   font-size: 1.2rem;
   gap: 0.5rem;
   
 }
+.listTitle{
+  font-size: 2rem;
+  text-align: center;
+}
 .cList{
-  position: absolute;
-  top: 2%;
-  right: 2%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
   font-size: 1.2rem;
   gap: 0.5rem;
+  overflow-y: auto;
 }
 .inputContainer {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -124,7 +123,6 @@ code {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
-  font-weight: bold;
   font-size: 1.2rem;
 }
 .appContainer{
@@ -134,49 +132,14 @@ code {
   justify-content: center;
   height: 100%;
 }
-.columnContainer{
-  display: flex;
-  flex-direction: column;
+.gridContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 5rem;
+  width: 100vw;
+  
 }
-@media screen and (min-width: 992px) {
-  .columnContainer {
-    flex-direction: column;
-  }
-  
-  .title {
-    order: -1;
-  }
-}
-@media screen and (max-width: 992px) {
-  .appContainer {
-    flex-direction: column;
-  }
-  
-  
-  .calorieChart {
-    width: 100%;
-    margin-top: 1rem;
-    order: 2;
-  }
-  
-  .cLimit,
-  .cDetails,
-  .cList,
-  .searchedItem {
-    width: 100%;
-    align-self: center;
-    text-align: center;
-  }
-  
-  .columnContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .searchContainer {
-    position: static;
-  }
-}
+
 
 .react-calendar {
   width: 350px;

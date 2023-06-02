@@ -162,70 +162,70 @@ function App() {
 
   return (
     <div className='appContainer'>
-      <div className='columnContainer'>
-        <div className='title'>
-              <h1>CALORIE TRACKER</h1>
+      <div className='title'>
+            <h1>CALORIE TRACKER</h1>
+      </div>
+      <div className='gridContainer'>
+        <div className='calandar'>
+          <Calendar 
+          onChange={onChange} 
+          value={date} 
+          className={'react-calandar'}
+          onDayClick={handleDayClick}/>
         </div>
-        <div className='chartNcal'>
-          <div className='calandar column'>
-            <Calendar 
-            onChange={onChange} 
-            value={date} 
-            className={'react-calandar'}
-            onDayClick={handleDayClick}/>
-          </div>
-          <div className="calorieChart column">
-            <CalorieChart 
-            calorieData={calorieData}
-            calorieLimit={calorieLimit}/>
-          </div>
+        <div className="calorieChart">
+          <CalorieChart 
+          calorieData={calorieData}
+          calorieLimit={calorieLimit}/>
+        </div>
+        <div className='cList'>
+          <div className='listTitle'>Items added:</div>
+          <CalorieList key={foodItems.length}
+          foodList={foodItems}
+          removeItem={handleRemove}
+          addOne={handlePlus}
+          date={date}/>
         </div>
         
+        </div>
         <div className='inputContainer'>
           <div className='cLimit'>
-              <input
-                className='limitInput input'
-                type="number"
-                placeholder="Enter your calorie limit:"
-                value={calorieLimit}
-                onChange={handleLimitChange}
-              />
+            <input
+              className='limitInput input'
+              type="number"
+              placeholder="Enter your calorie limit:"
+              value={calorieLimit}
+              onChange={handleLimitChange}
+            />
           </div>
           <div className='searchContainer'>
-            <div className='inputAndBtn'>
-              <input ref={addItemRef}
-              className='searchInput input' 
-              placeholder="Search a food item"
-              type="text" 
-              onChange={handleChange}
-              value={inputValue} />
-              <button className='searchBtn btn' onClick={handleSearchItem}>Search Item</button>
-            </div>
-            {searchedItem && (
-              <div className='searchedItem'>
-                {searchedItem.name} ({searchedItem.calories} calories)
-                <button className='addBtn btn' onClick={handleAddItem}>Add Item</button>
-              </div>
-            )}
+          <div className='inputAndBtn'>
+            <input ref={addItemRef}
+            className='searchInput input' 
+            placeholder="Search a food item"
+            type="text" 
+            onChange={handleChange}
+            value={inputValue} />
+            <button className='searchBtn btn' onClick={handleSearchItem}>Search Item</button>
           </div>
-            <div className='cList'>
-              <CalorieList key={foodItems.length}
-              foodList={foodItems}
-              removeItem={handleRemove}
-              addOne={handlePlus}
-              date={date}/>
+          {searchedItem && (
+            <div className='searchedItem'>
+              {searchedItem.name} ({searchedItem.calories} calories)
+              <button className='addBtn btn' onClick={handleAddItem}>Add Item</button>
             </div>
-            <div className='cDetails'>
-              <div>
-                Calories Limit: {calorieLimit}
-              </div>
-              <div>
-                Total calories: {totalCalories}
-              </div>
-              <div>
-                Calories Left: {calorieLimit - totalCalories}
-              </div>
-            </div>
+          )}
+        </div>
+      </div>
+      
+      <div className='cDetails'>
+        <div>
+          Calories Limit: {calorieLimit}
+        </div>
+        <div>
+          Total calories: {totalCalories}
+        </div>
+        <div>
+          Calories Left: {calorieLimit - totalCalories}
         </div>
       </div>
     </div> 

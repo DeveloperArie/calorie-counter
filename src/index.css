@@ -38,7 +38,9 @@ code {
   padding: 0.5rem 1.5rem;
 }
 .calandar {
-  width: minmax(250px, auto);
+  aspect-ratio: 2 / 1;
+  width: 33vw;
+  height: 100%;
   height: auto;
   display: flex;
   justify-content: center;
@@ -49,7 +51,9 @@ code {
 
 }
 .calorieChart{
-  width: minmax(250px, auto);
+  aspect-ratio: 1 / 1;
+  width: 33vw;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -60,11 +64,10 @@ code {
   font-weight: bold;
   font-size: 1.5rem;
   color: white;
-  padding-bottom: 1rem;
   width: 100%;
   text-align: center;
   background-color: darkgray;
-  
+  margin-bottom: 2rem;
 }
 .cLimit{
   display: flex;
@@ -85,13 +88,14 @@ code {
   text-align: center;
 }
 .cList{
-  width: minmax(250px, auto);
+  aspect-ratio: 1 / 1;
+  width: 33vw;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   font-size: 1.2rem;
-  gap: 0.5rem;
 }
 .inputContainer {
   display: flex;
@@ -132,22 +136,27 @@ code {
   justify-content: center;
   height: 100%;
 }
-.gridContainer{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.dataContainer{
+  display: flex;
+  flex-direction: row;
   margin-bottom: 5rem;
-  width: 100vw;
-  height: 100%;
-  margin: 2rem auto;
+  max-width: 90vw;
+  height: auto;
   
 }
 
-@media all and (max-width: 1080px){
-  .gridContainer{
-    grid-template-columns: 1fr;
+@media all and (max-width: 992px){
+  .dataContainer{
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+  }
+  .calandar{
+    justify-content: center;
+    aspect-ratio: initial;
   }
   .calorieChart{
-    width: 100%;
+    aspect-ratio: initial;
   }
   .inputContainer{
     flex-direction: column;
@@ -159,6 +168,8 @@ code {
   }
   .cList{
     justify-content: center;
+    width: 100%;
+    aspect-ratio: initial;
   }
 }
 

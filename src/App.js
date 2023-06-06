@@ -165,7 +165,7 @@ function App() {
       <div className='title'>
             <h1>CALORIE TRACKER</h1>
       </div>
-      <div className='gridContainer'>
+      <div className='dataContainer'>
         <div className='calandar'>
           <Calendar 
           onChange={onChange} 
@@ -173,11 +173,7 @@ function App() {
           className={'react-calandar'}
           onDayClick={handleDayClick}/>
         </div>
-        <div className="calorieChart">
-          <CalorieChart 
-          calorieData={calorieData}
-          calorieLimit={calorieLimit}/>
-        </div>
+        
         <div className='cList'>
           <div className='listTitle'>Items added:</div>
           <CalorieList key={foodItems.length}
@@ -185,6 +181,12 @@ function App() {
           removeItem={handleRemove}
           addOne={handlePlus}
           date={date}/>
+        </div>
+
+        <div className="calorieChart">
+          <CalorieChart 
+          calorieData={calorieData}
+          calorieLimit={calorieLimit}/>
         </div>
         
         </div>

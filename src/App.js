@@ -112,7 +112,7 @@ function App() {
       if (itemToRemove && itemToRemove.date) {
         setCalorieData((prevCalorieData) => {
           const updatedData = { ...prevCalorieData };
-          updatedData[itemToRemove.date] = 0;
+          updatedData[itemToRemove.date] -= itemToRemove.calories;
   
           return updatedData;
         });
@@ -158,6 +158,12 @@ function App() {
   };
 
   const totalCalories = foodItems.reduce((total, item) => total + item.calories, 0)
+
+  function handleReset() {
+    setFoodItems([])
+    setCalorieData({})
+    setCalorieLimit('')
+  }
   
 
   return (
@@ -188,47 +194,49 @@ function App() {
           calorieData={calorieData}
           calorieLimit={calorieLimit}/>
         </div>
-        
-        </div>
+      </div>
         <div className='inputContainer'>
-          <div className='cLimit'>
-            <input
-              className='limitInput input'
-              type="number"
-              placeholder="Enter your calorie limit:"
-              value={calorieLimit}
-              onChange={handleLimitChange}
-            />
-          </div>
           <div className='searchContainer'>
-          <div className='inputAndBtn'>
-            <input ref={addItemRef}
-            className='searchInput input' 
-            placeholder="Search a food item"
-            type="text" 
-            onChange={handleChange}
-            value={inputValue} />
-            <button className='searchBtn btn' onClick={handleSearchItem}>Search Item</button>
-          </div>
-          {searchedItem && (
+            <div className='cLimit'>
+              <input
+                className='limitInput input'
+                type="number"
+                placeholder="Enter your calorie limit:"
+                value={calorieLimit}
+                onChange={handleLimitChange}
+              />
+            </div>
+            <div className='inputAndBtn'>
+              <input ref={addItemRef}
+              className='searchInput input' 
+              placeholder="Search a food item"
+              type="text" 
+              onChange={handleChange}
+              value={inputValue} />
+              <button className='searchBtn btn' onClick={handleSearchItem}>Search Item</button>
+            </div>
+        </div>
+        {searchedItem && (
             <div className='searchedItem'>
               {searchedItem.name} ({searchedItem.calories} calories)
               <button className='addBtn btn' onClick={handleAddItem}>Add Item</button>
             </div>
           )}
-        </div>
       </div>
-      
-      <div className='cDetails'>
-        <div>
-          Calories Limit: {calorieLimit}
+      <div className='footer'>
+        
+        <div className='cDetails'>
+          <div>
+            Calories Limit: {calorieLimit}
+          </div>
+          <div>
+            Total calories: {totalCalories}
+          </div>
+          <div>
+            Calories Left: {calorieLimit - totalCalories}
+          </div>
         </div>
-        <div>
-          Total calories: {totalCalories}
-        </div>
-        <div>
-          Calories Left: {calorieLimit - totalCalories}
-        </div>
+        <button className='resetBtn btn' onClick={handleReset}>Reset</button>
       </div>
     </div> 
   )

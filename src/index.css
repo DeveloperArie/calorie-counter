@@ -1,6 +1,5 @@
 html, body {
   position: relative;
-  height: 100%;
   width: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -38,10 +37,8 @@ code {
   padding: 0.5rem 1.5rem;
 }
 .calandar {
-  aspect-ratio: 2 / 1;
+  flex: 1;
   width: 33vw;
-  height: 100%;
-  height: auto;
   display: flex;
   justify-content: center;
 }
@@ -51,9 +48,9 @@ code {
 
 }
 .calorieChart{
-  aspect-ratio: 1 / 1;
+  flex: 1;
   width: 33vw;
-  height: 100%;
+  height: 269px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -81,45 +78,47 @@ code {
   vertical-align: bottom;
   font-size: 1.2rem;
   gap: 0.5rem;
-  
+}
+.footer{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 2rem;
 }
 .listTitle{
   font-size: 2rem;
   text-align: center;
 }
 .cList{
-  aspect-ratio: 1 / 1;
+  flex: 1;
   width: 33vw;
-  height: 100%;
+  height: 269px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   font-size: 1.2rem;
+  overflow-y: scroll;
+  
 }
 .inputContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
 .searchContainer {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   position: relative;
 }
 .searchedItem{
-  position: fixed;
-  bottom: 25%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20%;
   padding: 1rem;
   gap: 0.5rem;
 }
@@ -134,14 +133,14 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 .dataContainer{
   display: flex;
-  flex-direction: row;
   margin-bottom: 5rem;
   max-width: 90vw;
-  height: auto;
+  align-items: flex-start;
+  gap: 1rem;
+  border: solid 1px grey;
   
 }
 
@@ -152,24 +151,29 @@ code {
     max-width: 90vw;
   }
   .calandar{
+  
     justify-content: center;
-    aspect-ratio: initial;
+   
   }
   .calorieChart{
-    aspect-ratio: initial;
+  
+
   }
-  .inputContainer{
+  
+  .searchContainer{
     flex-direction: column;
     gap: 0;
+    margin-bottom: 5rem;
   }
   .inputAndBtn{
     display: flex;
     flex-direction: column;
   }
   .cList{
+   
     justify-content: center;
     width: 100%;
-    aspect-ratio: initial;
+   
   }
 }
 

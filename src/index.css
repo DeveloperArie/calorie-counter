@@ -1,3 +1,8 @@
+* { 
+  box-sizing: border-box; 
+  
+
+}
 html, body {
   position: relative;
   width: 100%;
@@ -7,7 +12,7 @@ html, body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
+  background-color: #FFE5B4;
 }
 
 code {
@@ -63,7 +68,7 @@ code {
   color: white;
   width: 100%;
   text-align: center;
-  background-color: darkgray;
+  background-color: #800020;
   margin-bottom: 2rem;
 }
 .cLimit{
@@ -75,10 +80,11 @@ code {
 .cDetails{
   display: flex;
   justify-content: space-around;
-  vertical-align: bottom;
   font-size: 1.2rem;
   gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
+
 .footer{
   display: flex;
   flex-direction: column;
@@ -120,7 +126,8 @@ code {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  gap: 0.5rem;
+  margin-bottom: 5rem;
+  gap: 1rem;
 }
 .singleItemContainer{
   display: flex;
@@ -144,19 +151,30 @@ code {
   
 }
 
+
 @media all and (max-width: 992px){
+  
+  .cDetails {
+    margin-top: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer{
+    position: relative;
+    flex-direction: column-reverse;
+  }
   .dataContainer{
     flex-direction: column;
     align-items: center;
-    max-width: 90vw;
+    min-width: 300px;
   }
   .calandar{
-  
+    min-width: 300px;
     justify-content: center;
    
   }
   .calorieChart{
-  
+    min-width: 300px;
 
   }
   
@@ -174,6 +192,9 @@ code {
     justify-content: center;
     width: 100%;
    
+  }
+  .searchedItem{
+    flex-direction: column;
   }
 }
 
